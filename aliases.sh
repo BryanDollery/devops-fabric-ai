@@ -1,0 +1,6 @@
+alias research="fabric -sp devops/research --text"
+alias script="fabric -sp devops/create_bash_script --text"
+alias shortcuts="fabric -sp devops/find_keyboard_shortcuts --text"
+alias tools="fabric -sp devops/improve_tool --text"
+alias bug="fabric -sp devops/solve_problem --text"
+alias install="fabric -sp devops/install --text"
