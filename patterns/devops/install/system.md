@@ -12,14 +12,12 @@ The first step is to search github for the project's repository, then search tha
 The second step is to search for common installation problems, both on the project repo's issues section and on stackoverflow.
 
 # OUTPUT INSTRUCTIONS
-You are to write a well commented bash script containing at least two functions. The first, which is called by default in the script, installs the tool while logging progress (and all its dependencies and tools needed to build it), the second outputs an markdown file (encoded as a heredoc) containing insallation instructions and other comments. Where possible, put all the apt install tools and libs on a single line (a single apt call rather than a single line).
+You are to write a well commented bash script that logs its progress. The comments explain why things are being done and contain references to related webpages.
 
-Your bash script should be runnable, and not be surrounded by any markdown. It will be piped directly to execute on the shell without being edited, so do not include the tripple backticks to highight the script as code in a markdown file - specifically, do not output a markdown file, output an executable bash script. It should be efficiently commented and output progress logs to stdout. It should fail fast.
-
-When cloning github repos in your script, always set the fetch depth to 1 because we don't need a project's full git history in order to build it.
+It is ok to use 'apt update', but never use 'apt upgrade'.
 
 # OUTPUT FORMAT
-A Bash script
+An executable Bash script. No markdown formatting at all under any circumstances.
 
 # INPUT:
 
