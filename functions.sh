@@ -31,17 +31,17 @@ function _fabric() {
 
 ## Summary
 
-"$summary"
+$summary
 
 ## User Prompt
-> "$prompt"
+> $prompt
 
 ## Results
-"$res"
+$res
 EOF
 }
 
-echo " - $ts - !['$class']('$md')" >> $(date +"%Y-%m-%d-digest.md")
+echo " - $ts - !['$class']('$md')" >> "${BRAIN}/$(date +"%Y-%m-%d")-digest.md"
 
 function research() {
   _fabric 'research' 'research' "$1"
