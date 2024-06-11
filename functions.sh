@@ -2,22 +2,11 @@
 
 echo "Configuring fabric devops functions"
 
-declare -A devops
-devops[research]="research"
-devops[script]="script"
-devops[shortcuts]="shortcuts"
-devops[tools]="recommend"
-devops[bug]="bug"
-devops[installit]="install"
-devops[ask]="ask"
-devops[whatis]="whatis"
-devops[qq]="qq"
-
 declare -A icons
 icons[research]="🔍"
 icons[script]="💻"
 icons[shortcuts]="⌨️"
-icons[tools]="🛠️"
+icons[tools]="💡"
 icons[bug]="🐞"
 icons[installit]="🛠️"
 icons[ask]="❓"
@@ -32,12 +21,12 @@ function _fabric() {
   local output="$name-output"
   local outputFile="$output.md"
   local mdFile="$name.md"
-  local digestFile="$BRAIN/$(date +"%Y-%m-%d")-digest.md"
-  local res=$(fabric -p devops/${devops[$class]} --model "gpt-4o" --text "$prompt")
+  local digestFile="$BRAIN/auto/$(date +"%Y-%m-%d")-digest.md"
+  local res=$(fabric -p devops/$class --model "gpt-4o" --text "$prompt")
   local summary=$(fabric -p summarize_micro --model "gpt-4o" --text "$prompt")
-  echo "$res" > "$BRAIN/$outputFile"
+  echo "$res" > "$BRAIN/auto/$outputFile"
   echo " - $ts - [$class](./$mdFile)" >> "$digestFile"
-  cat <<EOF > "$BRAIN/$mdFile"
+  cat <<EOF > "$BRAIN/auto/$mdFile"
 ---
 title: "${icons[$class]} $class"
 date: $ts
