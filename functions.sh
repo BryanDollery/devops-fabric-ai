@@ -1,26 +1,28 @@
 #!/bin/bash
 
-echo "Configuring fabric functions"
+echo "Configuring fabric devops functions"
 
 declare -A devops
 devops[research]="research"
-devops[script]="create_bash_script"
-devops[shortcuts]="find_keyboard_shortcuts"
-devops[tools]="improve_tool"
-devops[bug]="solve_problem"
+devops[script]="script"
+devops[shortcuts]="shortcuts"
+devops[tools]="recommend"
+devops[bug]="bug"
 devops[installit]="install"
 devops[ask]="ask"
 devops[whatis]="whatis"
+devops[qq]="qq"
 
 declare -A icons
-devops[research]="🔍"
-devops[script]="💻"
-devops[shortcuts]="⌨️"
-devops[tools]="🛠️"
-devops[bug]="solve_problem"
-devops[installit]="install"
-devops[ask]="ask"
-devops[whatis]="whatis"
+icons[research]="🔍"
+icons[script]="💻"
+icons[shortcuts]="⌨️"
+icons[tools]="🛠️"
+icons[bug]="🐞"
+icons[installit]="🛠️"
+icons[ask]="❓"
+icons[whatis]="❓"
+icons[qq]="❓"
 
 function _fabric() {
   local class=$1
@@ -33,20 +35,15 @@ function _fabric() {
   local digestFile="$BRAIN/$(date +"%Y-%m-%d")-digest.md"
   local res=$(fabric -p devops/${devops[$class]} --model "gpt-4o" --text "$prompt")
   local summary=$(fabric -p summarize_micro --model "gpt-4o" --text "$prompt")
-  echo "Writing output file"
   echo "$res" > "$BRAIN/$outputFile"
-  echo "Writing digest"
   echo " - $ts - [$class](./$mdFile)" >> "$digestFile"
-  echo "writing $mdFile"
   cat <<EOF > "$BRAIN/$mdFile"
 ---
-title: "Prompt"
+title: "${icons[$class]} $class"
 date: $ts
 tags: ["automatic", "store", "prompt", "$class", "${devops[class]}"]
 ---
-# $class
-
-**Date and Time:** $ts
+# ${icons[$class]} $class
 
 ## User Prompt
 > $prompt
@@ -93,6 +90,10 @@ function whatis() {
   _fabric 'whatis' "$1"
 }
 
+function qq() {
+  _fabric 'qq' "$1"
+}
+
 export -f research
 export -f script
 export -f shortcuts
@@ -101,3 +102,4 @@ export -f bug
 export -f installit
 export -f ask
 export -f whatis
+export -f qq
