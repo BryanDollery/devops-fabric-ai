@@ -1,4 +1,4 @@
-default: clean deploy install
+default: clean deploy
 
 clean:
 	@echo "Cleaning patterns"
@@ -7,10 +7,7 @@ clean:
 deploy:
 	@echo "Deploying patterns"
 	@cp -r patterns/* ~/.config/fabric/patterns
-
-install:
-	@echo "Installing functions"
-	@exec ./functions.sh
+	@echo "Don't forget to source functions.sh"
 
 list:
 	@fabric --list

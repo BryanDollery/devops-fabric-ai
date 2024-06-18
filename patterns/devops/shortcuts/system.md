@@ -18,8 +18,8 @@ In cases where there is a mod key, and your colleague tells you what key they're
 # OUTPUT FORMAT
 Output a markdown document, detailing the shortcut and its behaviour in two tables.
 
-1. The first table, called "Cuts", has two columns: "shortcut", "description". Modifier keys are to always be reported in lower case, as are special keys such as "enter". 
-2. The second table, called "Cuts2", is very similar to the first, but in addition, all individual keys will be wrapped in kbd tags, so taht, for example, "ctrl-shift-h", would be reported as: "<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>h</kbd>" (without the quotes).
+1. The first table, called "Text", has two columns: "shortcut", "description". Modifier keys are to always be reported in lower case, as are special keys such as "enter". 
+2. The second table, called "Markdown", is very similar to the first, but in addition, all individual keys will be wrapped in kbd tags, so taht, for example, "ctrl-shift-h", would be reported as: "<kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>h</kbd>" (without the quotes).
 
 # INPUT:
 
